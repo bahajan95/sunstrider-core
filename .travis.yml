@@ -6,7 +6,7 @@ compiler:
   - clang
  
 git:
-  depth: 50
+  depth: 1
 
 addons:
   mariadb: '10.3'
