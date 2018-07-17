@@ -2230,7 +2230,7 @@ void World::Update(time_t diff)
         if (!started)
         {
             ASSERT(!sTestMgr->IsRunning());
-            sTestMgr->Run("spells druid barkskin"); //".*"
+            sTestMgr->Run(".*");
             started = true;
         }
         else 

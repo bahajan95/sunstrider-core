@@ -294,6 +294,7 @@ variables_map GetConsoleArguments(int argc, char** argv, fs::path& configFile, s
     options_description all("Allowed options");
     all.add_options()
         ("help,h", "print usage message")
+        ("version,v", "print version build info")
         ("config,c", value<fs::path>(&configFile)->default_value(fs::absolute(_TRINITY_REALM_CONFIG)),
             "use <arg> as configuration file")
         ;
