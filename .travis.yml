@@ -47,13 +47,14 @@ script:
   - mysql -utrinity -ptrinity auth < sql/base/auth_database.sql
   - mysql -utrinity -ptrinity characters < sql/base/characters_database.sql
   - mysql -utrinity -ptrinity logs < sql/base/logs_database.sql
+  - cd bin
+  - make -j 10 -k && make install
+  - cd check_install
   - wget https://blob.allumeciga.re/2017_12_17_data.7z
   - 7zr x 2017_12_17_data.7z -y > /dev/null
   - rm 2017_12_17_data.7z
   - ls
   - cd bin
-  - make -j 10 -k && make install
-  - cd check_install/bin
   - ./authserver --version
   - ./worldserver --version
   - wget https://github.com/ValorenWoW/sunstrider-core/releases/download/2018_07_15/world_2018_07_15.sql.zip
@@ -61,4 +62,3 @@ script:
   - rm world_2018_07_15.sql.zip
   - sed -e 's!^DataDir\s*=.*!DataDir = "../data/"!g;' -e 's!^LogsDir\s*=.*!LogsDir = "../logs/"!g;' < "../etc/worldserver.conf.dist" > "../etc/worldserver.conf"
   - ./worldserver --tests
-
