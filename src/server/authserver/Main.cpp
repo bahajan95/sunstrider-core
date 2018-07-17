@@ -61,6 +61,8 @@ variables_map GetConsoleArguments(int argc, char** argv, fs::path& configFile, s
 
 int main(int argc, char** argv)
 {
+    signal(SIGABRT, &Trinity::AbortHandler);
+
     auto configFile = fs::absolute(_TRINITY_REALM_CONFIG);
     std::string configService;
     auto vm = GetConsoleArguments(argc, argv, configFile, configService);
