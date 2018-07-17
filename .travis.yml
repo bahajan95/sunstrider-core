@@ -59,6 +59,6 @@ script:
   - wget https://github.com/ValorenWoW/sunstrider-core/releases/download/2018_07_15/world_2018_07_15.sql.zip
   - unzip world_2018_07_15.sql.zip
   - rm world_2018_07_15.sql.zip
-  - sed -e 's!^DataDir\s*=.*!DataDir = "../data/"!g;' -e 's!^LogsDir\s*=.*!LogsDir = "../logs/"!g;' < "worldserver.conf.dist" > "worldserver.conf"
+  - sed -e 's!^DataDir\s*=.*!DataDir = "../data/"!g;' -e 's!^LogsDir\s*=.*!LogsDir = "../logs/"!g;' < "../etc/worldserver.conf.dist" > "../etc/worldserver.conf"
   - ./worldserver --tests
 
